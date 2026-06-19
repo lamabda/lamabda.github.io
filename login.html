@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>冒险者登录</title>
+<link href="css/style08.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/js08.js">
+</script>
+<style>
+body{
+    background: url(../images/login.jpg) no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.login-wrap{
+    width: 500px;
+    margin: 80px auto;
+    padding: 40px;
+    background: rgba(43, 31, 20, 0.85);
+    border: 3px solid #8c6d31;
+    border-radius: 10px;
+}
+.login-wrap h2{
+    text-align: center;
+    color: #ffd700;
+    border: none;
+    padding: 0 0 30px 0;
+}
+/* 表单项容器，改为垂直布局 */
+.item{
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.item label{
+    width: 100%;
+    font-size: 18px;
+    color: #d4b886;
+    margin-bottom: 8px;
+}
+.item input,.item select{
+    width: 100%;
+    height: 35px;
+    padding: 0 10px;
+    border: 1px solid #8c6d31;
+    background: #1a140e;
+    color: #e0d4b4;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.err-border{
+    border:1px solid red !important;
+}
+.tip-text{
+    margin-top: 6px;
+    font-size: 14px;
+    color: red;
+}
+.sub-btn{
+    width: 100%;
+    height: 45px;
+    margin-top: 20px;
+    background: linear-gradient(to bottom, #8c6d31, #6b5028);
+    color: #fff;
+    font-size: 18px;
+    border: 2px solid #b89460;
+    cursor: pointer;
+}
+.sub-btn:hover{
+    background: #ffd700;
+    color: #1a120b;
+}
+.back-index{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #e0d4b4;
+}
+.back-index:hover{
+    color: #ffd700;
+}
+</style>
+</head>
+<body>
+    <div class="login-wrap">
+        <h2>冒险者信息登录</h2>
+        <form id="loginForm">
+            <div class="item">
+                <label>昵称：</label>
+                <input id="nickname" onblur="checkNick()" type="text" placeholder="请输入游戏昵称">
+                <span class="tip-text" id="nickTip"></span>
+            </div>
+            <div class="item">
+                <label>账号：</label>
+                <input id="username" onblur="checkName()" type="text" placeholder="请输入账号">
+                <span class="tip-text" id="user"></span>
+            </div>
+            <div class="item">
+                <label>密码：</label>
+                <input id="pwd" onblur="checkPwd()" type="password" placeholder="请输入密码">
+                <span class="tip-text" id="pwdTip"></span>
+            </div>
+            <div class="item">
+                <label>据点：</label>
+                <select id="city">
+                    <option>选择所属城邦</option>
+                    <option>圣光王城</option>
+                    <option>幽暗秘境</option>
+                    <option>精灵森林</option>
+                    <option>冰封雪域</option>
+                </select>
+            </div>
+            <button type="button" class="sub-btn" onclick="submitLogin()">确认提交</button>
+        </form>
+        <a href="index.html" class="back-index">返回首页</a>
+    </div>
+
+<script>
+function submitLogin(){
+    var nickTip = document.getElementById("nickTip").innerText;
+    var userTip = document.getElementById("user").innerText;
+    var pwdTip = document.getElementById("pwdTip").innerText;
+
+    if(nickTip=="通过" && userTip=="通过" && pwdTip=="通过"){
+        alert("登录成功！欢迎踏入剑与魔法奇幻世界！");
+        location.href="index.html";
+    }else{
+        alert("请先完善正确的昵称、账号和密码！");
+    }
+}
+</script>
+
+</body>
+</html>
